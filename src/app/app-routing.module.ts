@@ -4,6 +4,7 @@ import { ProductosLocalesComponent } from './components/productos-locales/produc
 import { LocalesAdheridosComponent } from './components/locales-adheridos/locales-adheridos.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/locales', pathMatch: 'full' },
   { path: 'locales', component: LocalesAdheridosComponent },
   { path: 'productos', component: ProductosLocalesComponent }
 ];
