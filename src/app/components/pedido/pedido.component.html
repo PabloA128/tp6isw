@@ -1,0 +1,92 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Calle (alfabético)</label>
+      <input type="text" class="form-control" formControlName="calle" />
+    </div>
+    <div class="form-group">
+      <label>Altura (numérico)</label>
+      <input type="number" class="form-control" formControlName="altura" />
+    </div>
+    <div class="form-group">
+      <label>Ciudad</label>
+      <select class="form-control" formControlName="ciudad">
+        <option value="">Seleccionar ciudad</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Villa María">Villa María</option>
+        <option value="Río Cuarto">Río Cuarto</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Forma de pago</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="pago"
+          value="efectivo"
+          formControlName="pago"
+        />
+        <label class="form-check-label">Efectivo</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="pago"
+          value="tarjeta"
+          formControlName="pago"
+        />
+        <label class="form-check-label">Tarjeta</label>
+      </div>
+    </div>
+    <div *ngIf="myForm.get('pago').value === 'efectivo'">
+      <div class="form-group">
+        <label>Monto</label>
+        <input type="number" class="form-control" formControlName="monto" />
+      </div>
+    </div>
+    <div *ngIf="myForm.get('pago').value === 'tarjeta'">
+      <div class="form-group">
+        <label>Número de tarjeta</label>
+        <input type="text" class="form-control" formControlName="numeroTarjeta" />
+      </div>
+      <div class="form-group">
+        <label>Nombre y apellido titular</label>
+        <input type="text" class="form-control" formControlName="nombreApellidoTitular" />
+      </div>
+      <div class="form-group">
+        <label>Fecha de vencimiento</label>
+        <input type="text" class="form-control" formControlName="fechaVencimiento" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Entrega</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="entrega"
+          value="programada"
+          formControlName="entrega"
+        />
+        <label class="form-check-label">En cierta fecha y hora</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="entrega"
+          value="inmediata"
+          formControlName="entrega"
+        />
+        <label class="form-check-label">Lo antes posible</label>
+      </div>
+    </div>
+    <div *ngIf="myForm.get('entrega').value === 'programada'">
+        <div class="form-group">
+          <label>Fecha de entrega</label>
+          <input type="text" class="form-control" formControlName="fechaEntrega" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Confirmar</button>
+    </form>
