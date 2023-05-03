@@ -6,7 +6,7 @@ import { LocalesAdheridosComponent } from './components/locales-adheridos/locale
 const routes: Routes = [
   { path: '', redirectTo: '/locales', pathMatch: 'full' },
   { path: 'locales', component: LocalesAdheridosComponent },
-  { path: 'productos', component: ProductosLocalesComponent }
+  { path: 'productos/:id', component: ProductosLocalesComponent }
 ];
 
 @NgModule({
