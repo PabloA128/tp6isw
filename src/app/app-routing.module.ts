@@ -5,10 +5,10 @@ import { LocalesAdheridosComponent } from './components/locales-adheridos/locale
 import { PedidoComponent } from './components/pedido/pedido.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/locales', pathMatch: 'full' },
   { path: 'locales', component: LocalesAdheridosComponent },
-  { path: 'productos', component: ProductosLocalesComponent },
-  { path: 'pedido', component: PedidoComponent }
-
+  { path: 'pedido', component: PedidoComponent },
+  { path: 'productos/:id', component: ProductosLocalesComponent }
 ];
 
 @NgModule({

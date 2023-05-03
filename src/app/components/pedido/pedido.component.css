@@ -1,56 +1,81 @@
+.card {
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+form {
+  margin: 30px auto;
+  max-width: 600px;
+}
+
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+input[type="date"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #aaa;
+}
+
+.form-check-label {
+  margin-left: 5px;
+}
+
+.btn-primary {
+  font-weight: 500;
+  background-color: black;
+  border-color: black;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+h2 {
+font-weight: 600;
+color: #333;
+margin-bottom: 16px;
+border-bottom: 2px solid #ddd;
+padding-bottom: 8px;
+text-align: center;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: black;
+  border-color: black;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+  form {
+    margin: 15px auto;
   }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  .form-control {
-    width: 100%;
-    height: 34px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .radio-label {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 5px;
-  }
-  
-  .radio-group {
-    margin-bottom: 15px;
-  }
-  
-  .radio-group label {
-    font-weight: normal;
-    margin-right: 10px;
-  }
-  
-  .radio-group input[type="radio"] {
-    margin-right: 5px;
-  }
-  
-  .radio-group input[type="radio"]:last-child {
-    margin-right: 0;
-  }
-  
-  .btn-primary {
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    color: #fff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #286090;
-    border-color: #204d74;
-    color: #fff;
-  }
-  
-  
+}

@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TP6ISW"
+    }
+  },
+  "defaultProject": "TP6ISW",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class PedidoComponent implements OnInit {
   myForm: FormGroup;
-
+  formaPago:string;
   ciudades: string[] = ['Córdoba', 'Villa Carlos Paz', 'Río Cuarto', 'Alta Gracia', 'La Falda'];
 
   constructor(private fb: FormBuilder) { 
@@ -17,9 +17,9 @@ export class PedidoComponent implements OnInit {
       ciudad: ['', Validators.required],
       formaPago: ['', Validators.required],
       monto: [''],
-      nroTarjeta: [''],
-      nombreApellidoTarjeta: [''],
-      fechaVencimientoTarjeta: [''],
+      numeroTarjeta: [''],
+      nombreApellidoTitular: [''],
+      fechaVencimiento: [''],
       entrega: ['', Validators.required],
       fechaEntrega: ['']
     });
@@ -30,5 +30,15 @@ export class PedidoComponent implements OnInit {
   
   onSubmit() {
     console.log(this.myForm.value);
+  }
+
+  onFormaPagoChange() {
+    const formaPagoControl = this.myForm.get('formaPago');
+  
+    if (formaPagoControl.value === 'efectivo') {
+      this.formaPago = 'efectivo';
+    } else if (formaPagoControl.value === 'tarjeta') {
+      this.formaPago = 'tarjeta';
+    }
   }
 }

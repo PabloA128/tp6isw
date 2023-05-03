@@ -1,7 +1,12 @@
+<!-- Agregar el script de jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<div class="card border rounded shadow">
+    <h2>Detalles del Pedido</h2>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group" style="width: 550px;">
       <label>Calle (alfabético)</label>
-      <input type="text" class="form-control" formControlName="calle" />
+      <input type="text" class="form-control form-control-lg" formControlName="calle" />
     </div>
     <div class="form-group">
       <label>Altura (numérico)</label>
@@ -24,7 +29,8 @@
           type="radio"
           name="pago"
           value="efectivo"
-          formControlName="pago"
+          formControlName="formaPago"
+          (change)="onFormaPagoChange()"
         />
         <label class="form-check-label">Efectivo</label>
       </div>
@@ -34,21 +40,22 @@
           type="radio"
           name="pago"
           value="tarjeta"
-          formControlName="pago"
+          formControlName="formaPago"
+          (change)="onFormaPagoChange()"
         />
         <label class="form-check-label">Tarjeta</label>
       </div>
     </div>
-    <div *ngIf="myForm.get('pago').value === 'efectivo'">
+    <div *ngIf="formaPago === 'efectivo'">
       <div class="form-group">
         <label>Monto</label>
         <input type="number" class="form-control" formControlName="monto" />
       </div>
     </div>
-    <div *ngIf="myForm.get('pago').value === 'tarjeta'">
+    <div *ngIf="formaPago === 'tarjeta'">
       <div class="form-group">
         <label>Número de tarjeta</label>
-        <input type="text" class="form-control" formControlName="numeroTarjeta" />
+        <input type="number" class="form-control" formControlName="numeroTarjeta" />
       </div>
       <div class="form-group">
         <label>Nombre y apellido titular</label>
@@ -56,7 +63,7 @@
       </div>
       <div class="form-group">
         <label>Fecha de vencimiento</label>
-        <input type="text" class="form-control" formControlName="fechaVencimiento" />
+        <input type="date" class="form-control" formControlName="fechaVencimiento" />
       </div>
     </div>
     <div class="form-group">
@@ -85,8 +92,28 @@
     <div *ngIf="myForm.get('entrega').value === 'programada'">
         <div class="form-group">
           <label>Fecha de entrega</label>
-          <input type="text" class="form-control" formControlName="fechaEntrega" />
+          <input type="date" class="form-control" formControlName="fechaEntrega" />
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Confirmar</button>
+      <button type="button" class="btn btn-primary" style="width: 550px;"  data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar</button>
     </form>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pedido confirmado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¡Gracias por tu pedido! Será procesado a la brevedad.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

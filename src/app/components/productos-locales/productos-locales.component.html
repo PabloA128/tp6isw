@@ -1,151 +1,219 @@
-<section class="py-5 text-center container">
-    <div class="row">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <button></button>
-        <p class="lead text-muted">Conocé nuestros productos</p>
+<div class="card">
+  <div class="row">
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Pedir aquí</b></h4>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- Primer local-->
+      <div *ngIf="id === 1">
+      <!-- Primer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://http2.mlstatic.com/D_NQ_NP_669692-MLA43732603433_102020-O.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Empanada</div>
+            <div class="row">Árabe</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(1, -1)">-</button>
+            <span id="counter">{{ contador1  }}</span>
+            <button class="square-btn" (click)="cambiarContador(1, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal1}}</div>
+        </div>
+      </div>
+
+      <!-- Segundo producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/245/528/products/carne-r_17072020-dan_44231-6560a9c0c652593fdb15997480210393-640-0.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Empanada</div>
+            <div class="row">Carne suave</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(2, -1)">-</button>
+            <span id="counter">{{ contador2 }}</span>
+            <button class="square-btn" (click)="cambiarContador(2, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal2}}</div>
+        </div>
+      </div>
+
+
+      <!-- Tercer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://iloveempanada.com/assets/images/jamon_pro.png" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Empanada</div>
+            <div class="row">Jamón y queso</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(3, -1)">-</button>
+            <span id="counter">{{ contador3 }}</span>
+            <button class="square-btn" (click)="cambiarContador(3, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal3}}</div>
+        </div>
       </div>
     </div>
-  </section>
-  
-  <div class="album bg-light px-0">
-    <div class="container box">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg
-              class="bd-placeholder-img card-img-top"
-              width="100%"
-              height="225"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
-  
-            <div class="card-body box">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button
-                    routerLink="/pedidoComercioAdherido"
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    +1
-                  </button>
-                </div>
-              </div>
-            </div>
+
+
+      <!-- Segundo local-->
+      <div *ngIf="id === 2">
+      <!-- Primer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://mcdonalds.es/api/cms/images/mcdonalds-es/bece0fec-976e-4403-8374-8424497c8b97_1080x943_Menú4You_cheeseburger.png" />
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg
-              class="bd-placeholder-img card-img-top"
-              width="100%"
-              height="225"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
-  
-            <div class="card-body box">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">
-                    +1
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div class="col">
+            <div class="row text-muted">Hamburguesa</div>
+            <div class="row">Cheeseburger</div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg
-              class="bd-placeholder-img card-img-top"
-              width="100%"
-              height="225"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
-  
-            <div class="card-body box">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">
-                    +1
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(1, -1)">-</button>
+            <span id="counter">{{ contador1  }}</span>
+            <button class="square-btn" (click)="cambiarContador(1, 1)">+</button>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg
-              class="bd-placeholder-img card-img-top"
-              width="100%"
-              height="225"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-            </svg>
-  
-            <div class="card-body box">
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">
-                    +1
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="col"><span>$</span>{{subtotal1}}</div>
         </div>
       </div>
+
+      <!-- Segundo producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://i.pinimg.com/474x/d9/6a/1d/d96a1d3e6315ed8e92c892fdd769f9b1.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Hamburguesa</div>
+            <div class="row">Cangreburger</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(2, -1)">-</button>
+            <span id="counter">{{ contador2 }}</span>
+            <button class="square-btn" (click)="cambiarContador(2, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal2}}</div>
+        </div>
+      </div>
+
+      <!-- Tercer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://i.pinimg.com/736x/09/89/27/098927be6224a1b785e346bcd1e6b39b.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Lomito</div>
+            <div class="row">Lomito ._.</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(3, -1)">-</button>
+            <span id="counter">{{ contador3 }}</span>
+            <button class="square-btn" (click)="cambiarContador(3, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal3}}</div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Tercer local-->
+      <div *ngIf="id === 3">
+      <!-- Primer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://d2r9epyceweg5n.cloudfront.net/stores/001/267/330/products/muzzarella1-ca78bc4301f8cd07c915944985769045-640-0.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Pizza</div>
+            <div class="row">Muzzarella</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(1, -1)">-</button>
+            <span id="counter">{{ contador1  }}</span>
+            <button class="square-btn" (click)="cambiarContador(1, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal1}}</div>
+        </div>
+      </div>
+
+      <!-- Segundo producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://deliverybrandsen.com/wp-content/uploads/2021/11/pizza.png" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Pizza</div>
+            <div class="row">Especial</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(2, -1)">-</button>
+            <span id="counter">{{ contador2 }}</span>
+            <button class="square-btn" (click)="cambiarContador(2, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal2}}</div>
+        </div>
+      </div>
+
+      <!-- Tercer producto -->
+      <div class="row border-top border-bottom">
+        <div class="row main align-items-center">
+          <div class="col-2">
+            <img class="img-fluid" src="https://img2.freepng.es/20180423/kie/kisspng-pizza-margherita-italian-cuisine-mozzarella-nutrit-pizza-ingredient-5add74bba84a05.0859935915244627796893.jpg" />
+          </div>
+          <div class="col">
+            <div class="row text-muted">Pizza</div>
+            <div class="row">Margarita</div>
+          </div>
+          <div class="col container">
+            <button class="square-btn" (click)="cambiarContador(3, -1)">-</button>
+            <span id="counter">{{ contador3 }}</span>
+            <button class="square-btn" (click)="cambiarContador(3, 1)">+</button>
+          </div>
+          <div class="col"><span>$</span>{{subtotal3}}</div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Volver al negocio-->
+      <div class="back-to-shop" routerLink="/comerciosAdheridos" role="button">
+        <span class="text-muted" role="button" routerLink="/locales">Atrás</span>
+      </div>
+    </div>
+
+
+    <!-- Resumen de compra -->
+    <div class="col-md-4 summary">
+      <div>
+        <h5><b>Resumen</b></h5>
+      </div>
+ 
+    
+      <div
+        class="row"
+        style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;"
+      >
+        <div class="col">Precio Total</div>
+        <div class="col text-right"><span>$</span> {{total}}  </div>
+      </div>
+      <button class="btn" (click)="confirmarPedido()">CONFIRMAR</button>
     </div>
   </div>
+</div>
