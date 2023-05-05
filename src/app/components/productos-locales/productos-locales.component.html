@@ -212,7 +212,9 @@
       >
         <div class="col">Precio Total</div>
         <div class="col text-right"><span>$</span> {{total}}  </div>
+
       </div>
+      <p class="col text-right text-danger" *ngIf="pedidoDenegado">¡Por favor agregue elementos a su pedido!</p>
       <button class="btn" (click)="confirmarPedido()">CONFIRMAR</button>
     </div>
   </div>

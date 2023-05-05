@@ -41,11 +41,16 @@ export class ProductosLocalesComponent implements OnInit {
   subtotal2: number = 0;
   subtotal3: number = 0;
   total: number = 0;
-  
+  pedidoDenegado: boolean = false;
 
 
   confirmarPedido(){
-    this.router.navigate(['/pedido']);
+    if(this.total > 0){
+      this.router.navigate(['/pedido']);
+    }
+    else{
+      this.pedidoDenegado = true;
+    }
   }
 
 
