@@ -25,7 +25,8 @@ export class PedidoComponent implements OnInit {
       cvc:['', Validators.pattern('^[0-9]{3,4}$')],
       fechaVencimiento: ['', Validators.pattern(/^(0[1-9]|1[0-2])\/[0-9]{2}$/)],
       entrega: ['', Validators.required],
-      fechaEntrega: ['']
+      fechaEntrega: [''],
+      horaEntrega: ['']
     });
   }
 

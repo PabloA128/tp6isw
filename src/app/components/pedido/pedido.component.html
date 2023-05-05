@@ -111,6 +111,10 @@
           <label>Fecha de entrega</label>
           <input type="date" class="form-control" formControlName="fechaEntrega" required />
         </div>
+        <div class="form-group">
+          <label>Hora de entrega</label>
+          <input type="text" class="form-control" formControlName="horaEntrega" required />
+        </div>
       </div>
       <button *ngIf="myForm.valid" type="button" class="btn btn-primary" style="width: 550px;"  data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar</button>
     </form>
