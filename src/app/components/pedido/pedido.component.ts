@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+const fechaRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+
 @Component({
   selector: 'app-pedido',
   templateUrl: './pedido.component.html',
@@ -12,14 +14,16 @@ export class PedidoComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { 
     this.myForm = this.fb.group({
-      calleAlfabetico: ['', Validators.required],
-      calleNumerico: ['', Validators.required],
+      calle: ['', Validators.required],
+      altura: ['', Validators.required],
       ciudad: ['', Validators.required],
+      referencia:[''],
       formaPago: ['', Validators.required],
       monto: [''],
-      numeroTarjeta: [''],
+      numeroTarjeta: ['',Validators.pattern('^4[0-9]{12}(?:[0-9]{3})?$')],
       nombreApellidoTitular: [''],
-      fechaVencimiento: [''],
+      cvc:['', Validators.pattern('^[0-9]{3,4}$')],
+      fechaVencimiento: ['', Validators.pattern(/^(0[1-9]|1[0-2])\/[0-9]{2}$/)],
       entrega: ['', Validators.required],
       fechaEntrega: ['']
     });

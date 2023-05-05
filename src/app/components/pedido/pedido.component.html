@@ -5,11 +5,11 @@
     <h2>Detalles del Pedido</h2>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="form-group" style="width: 550px;">
-      <label>Calle (alfabético)</label>
+      <label>Calle</label>
       <input type="text" class="form-control form-control-lg" formControlName="calle" />
     </div>
     <div class="form-group">
-      <label>Altura (numérico)</label>
+      <label>Altura</label>
       <input type="number" class="form-control" formControlName="altura" />
     </div>
     <div class="form-group">
@@ -21,13 +21,17 @@
         <option value="Río Cuarto">Río Cuarto</option>
       </select>
     </div>
+    <div class="form-group" style="width: 550px;">
+      <label>Referencia (opcional)</label>
+      <input type="text" class="form-control form-control-lg" formControlName="referencia" />
+    </div>
     <div class="form-group">
       <label>Forma de pago</label>
       <div class="form-check">
         <input
           class="form-check-input"
           type="radio"
-          name="pago"
+          name="formaPago"
           value="efectivo"
           formControlName="formaPago"
           (change)="onFormaPagoChange()"
@@ -38,7 +42,7 @@
         <input
           class="form-check-input"
           type="radio"
-          name="pago"
+          name="formaPago"
           value="tarjeta"
           formControlName="formaPago"
           (change)="onFormaPagoChange()"
@@ -49,21 +53,34 @@
     <div *ngIf="formaPago === 'efectivo'">
       <div class="form-group">
         <label>Monto</label>
-        <input type="number" class="form-control" formControlName="monto" />
+        <input type="number" class="form-control" formControlName="monto" required/>
       </div>
     </div>
     <div *ngIf="formaPago === 'tarjeta'">
       <div class="form-group">
         <label>Número de tarjeta</label>
-        <input type="number" class="form-control" formControlName="numeroTarjeta" />
+        <input type="number" class="form-control" formControlName="numeroTarjeta"/>
+      </div>
+      <div *ngIf="myForm.controls.numeroTarjeta.errors?.pattern">
+        Por favor, ingrese un número de tarjeta Visa válido.
       </div>
       <div class="form-group">
         <label>Nombre y apellido titular</label>
-        <input type="text" class="form-control" formControlName="nombreApellidoTitular" />
+        <input type="text" class="form-control" formControlName="nombreApellidoTitular" required />
       </div>
       <div class="form-group">
         <label>Fecha de vencimiento</label>
-        <input type="date" class="form-control" formControlName="fechaVencimiento" />
+        <input type="text" min="05/23" max="12-2030" step="1" class="form-control" formControlName="fechaVencimiento" required />
+      </div>
+      <div *ngIf="myForm.controls.fechaVencimiento.errors?.pattern">
+        Por favor, ingrese una fecha de vencimiento válida.
+      </div>
+      <div class="form-group">
+        <label>CVC</label>
+        <input type="number" maxlength="3" class="form-control" formControlName="cvc" required/>
+      </div>
+      <div *ngIf="myForm.controls.cvc.errors?.pattern">
+        Por favor, ingrese un CVC válido.
       </div>
     </div>
     <div class="form-group">
@@ -92,10 +109,10 @@
     <div *ngIf="myForm.get('entrega').value === 'programada'">
         <div class="form-group">
           <label>Fecha de entrega</label>
-          <input type="date" class="form-control" formControlName="fechaEntrega" />
+          <input type="date" class="form-control" formControlName="fechaEntrega" required />
         </div>
       </div>
-      <button type="button" class="btn btn-primary" style="width: 550px;"  data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar</button>
+      <button *ngIf="myForm.valid" type="button" class="btn btn-primary" style="width: 550px;"  data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar</button>
     </form>
     <div class="back-to-shop" routerLink="/comerciosAdheridos" role="button">
       <span class="text-muted" role="button" routerLink="/locales">Cancelar</span>
